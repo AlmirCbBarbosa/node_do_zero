@@ -59,6 +59,7 @@ server.delete('/videos/:id', async (request, reply)=>{ //delete apaga um registr
 
 //comandos finais
 server.listen({
+    host: '0.0.0.0',
     port: process.env.PORT ?? port,
 });
 
