@@ -9,7 +9,7 @@ const database = new DatabasePostgres();
 
 //criando rotas
 server.get('/',()=>{ //raiz
-    return 'Gerenciar videos';
+    return 'Bem vindo ao site de gerenciamento de vídeos';
 });
 
 server.post('/videos', async(request,reply)=>{ // post cria um registro
@@ -63,4 +63,4 @@ server.listen({
     port: process.env.PORT ?? port,
 });
 
-console.log(`Acesse a aplicação através do endereço: http://localhost:${port}`);
+//console.log(`Acesse a aplicação através do endereço: http://localhost:${port}`);
