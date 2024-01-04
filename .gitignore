@@ -1,0 +1,6 @@
+.env
+node_modules
+server_version/
+comandos.txt
+procedimento.txt
+routes.http
