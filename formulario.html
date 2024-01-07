@@ -4,10 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar video</title>
+    <link rel="icon" href="#" type="image/x-icon">
 
     <link rel="stylesheet" href="./css/style.css">
 </head>
-<body>
+<body class="pagina">
+    <main class="conteudoPrincipal">
+        <form action="http://localhost:3333/videos" method="post" class="formulario" data-formulario>
+            <div>
+                <label for="titulo">Titulo</label>
+                <input type="text" name="title" id="entradaTitulo" required>
+            </div>
+            <div>
+                <label for="descricao">Descrição</label>
+                <input type="text" name="description" id="entradaDescricao" required>
+            </div>
+            <div>
+                <label for="duracao">Duração</label>
+                <input type="number" name="duration" id="entradaDuracao" required>
+            </div>
+            <div>
+                <input type="submit" id="btnEnviar" value="Enviar">
+            </div>
+        </form>
+    </main>
     
 </body>
+<script type="module" src="./scripts/index.js"></script>
 </html>
