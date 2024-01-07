@@ -1,8 +1,15 @@
 import {fastify} from 'fastify';
+import fastifyCors from '@fastify/cors';
 import { DatabasePostgres } from './database-postgres.js';
 
 const server = fastify();
 const port = 3333;
+
+server.register(fastifyCors, {
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type'],
+});
 
 const database = new DatabasePostgres();
 
