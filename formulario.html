@@ -10,21 +10,22 @@
 </head>
 <body class="pagina">
     <main class="conteudoPrincipal">
+        <h class="titulo">Cadastro de Video</h>
         <form action="http://localhost:3333/videos" method="post" class="formulario" data-formulario>
-            <div>
-                <label for="titulo">Titulo</label>
-                <input type="text" name="title" id="entradaTitulo" required>
+            <div class="campo">
+                <label for="entradaTitulo">Titulo</label>
+                <input type="text" name="title" id="entradaTitulo" class="entrada" required>
             </div>
-            <div>
-                <label for="descricao">Descrição</label>
-                <input type="text" name="description" id="entradaDescricao" required>
+            <div class="campo">
+                <label for="entradaDescricao">Descrição</label>
+                <input type="text" name="description" id="entradaDescricao" class="entrada" required>
             </div>
-            <div>
-                <label for="duracao">Duração</label>
-                <input type="number" name="duration" id="entradaDuracao" required>
+            <div class="campo">
+                <label for="entradaDuracao">Duração</label>
+                <input type="number" name="duration" id="entradaDuracao" class="entrada" required>
             </div>
-            <div>
-                <input type="submit" id="btnEnviar" value="Enviar">
+            <div class="campo">
+                <input type="submit" id="btnEnviar" class="botao" value="Enviar">
             </div>
         </form>
     </main>

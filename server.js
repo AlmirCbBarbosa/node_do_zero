@@ -1,21 +1,25 @@
 import {fastify} from 'fastify';
 import fastifyCors from '@fastify/cors';
+import fs from 'node:fs';
 import { DatabasePostgres } from './database-postgres.js';
 
 const server = fastify();
 const port = 3333;
-
+ 
 server.register(fastifyCors, {
     origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type'],
 });
-
+ 
 const database = new DatabasePostgres();
 
 //criando rotas
-server.get('/',()=>{ //raiz
-    return 'Bem vindo ao site de gerenciamento de vídeos';
+server.get('/',(request, reply)=>{ //raiz
+    fs.readFile('./formulario.html','utf-8', (err, data)=>{
+        reply.header('Content-Type', 'text/html');
+        reply.status(200).send(data);
+    });
 });
 
 server.post('/videos', async(request,reply)=>{ // post cria um registro
@@ -69,4 +73,4 @@ server.listen({
     port: process.env.PORT ?? port,
 });
 
-//console.log(`Acesse a aplicação através do endereço: http://localhost:${port}`);
+console.log(`Acesse a aplicação através do endereço: http://localhost:${port}`);

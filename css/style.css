@@ -1,0 +1,41 @@
+/* reset básicos */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    
+}
+
+.conteudoPrincipal{
+    background-color:#D2B48C;
+    border-radius: 5px;
+    margin: 20px auto;
+    padding:10px;
+    text-align: center;
+    width:400px;
+}
+
+.titulo{    
+    font-weight: Bolder;
+}
+
+.formulario{     
+    display: flex;
+    flex-direction: column;
+    gap: 5px;    
+}
+
+.campo{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;   
+    width: 100%;
+}
+
+.entrada{
+    width: 300px;
+}
+
+.botao{
+    padding: 2px;
+    margin: 0 auto;
+}
