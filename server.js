@@ -1,22 +1,39 @@
 import {fastify} from 'fastify';
 import fastifyCors from '@fastify/cors';
+import fastifyStatic from '@fastify/static';
+import path from 'node:path';
 import fs from 'node:fs';
 import { DatabasePostgres } from './database-postgres.js';
+import { fileURLToPath } from 'node:url';
 
+//configurações iniciais
 const server = fastify();
 const port = 3333;
- 
+
+//CORS
 server.register(fastifyCors, {
     origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type'],
 });
- 
+
+//__dirname
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+//configurando arquivos estáticos
+server.register(fastifyStatic,{
+    root: path.join(__dirname, './'),
+    wildcard: false //oque é isso?
+})
+
+
 const database = new DatabasePostgres();
 
 //criando rotas
 server.get('/',(request, reply)=>{ //raiz
-    fs.readFile('./formulario.html','utf-8', (err, data)=>{
+    const filePath = path.join(__dirname, 'formulario.html');
+
+    fs.readFile(filePath,'utf-8', async(err, data)=>{
         reply.header('Content-Type', 'text/html');
         reply.status(200).send(data);
     });
